@@ -52,7 +52,6 @@ class HDComputing():
         average_hv[mask2] = -1
         zero_mask = (~ mask1) & (~ mask2)
         average_hv[zero_mask] = 0
-        print(np.sum(average_hv == 0))
         return average_hv
     
     def hamming_similarity(self, hv1, hv2):
@@ -103,7 +102,6 @@ def encode_features(features, hd, num_levels, level_hvs, position_hvs):
     encoded_hv = hd.superpose(encoded_features)
     return encoded_hv
 
-
 def create_class_prototypes(encoded_hvs, labels, num_classes, hd, pecentile=0.5, voting_threshold=0.5):
     
     class_prototypes = np.zeros((num_classes, hd.dim))
@@ -111,7 +109,7 @@ def create_class_prototypes(encoded_hvs, labels, num_classes, hd, pecentile=0.5,
     for i in range(num_classes):
         class_mask = labels == i
         class_hvs = encoded_hvs[class_mask]
-        class_prototypes[i] = hd.superpose(class_hvs)
+        class_prototypes[i] = hd.vote(class_hvs, threshold=voting_threshold)
 
     similarities_to_prototypes = np.zeros(encoded_hvs.shape[0])
 
