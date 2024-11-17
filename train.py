@@ -89,7 +89,7 @@ def train(model, train_dataset, val_dataset, num_epochs, batch_size, workers):
 
             # Plot accuracy, precision, recall, and F1-score on the top-right axis
             metrics.plot(x='Epoch', y=['Accuracy', 'Precision', 'Recall', 'F1-Score'], ax=axs[0, 1])
-            axs[0, 1].set_title("Classification Metrics")
+            axs[0, 1].set_title("Classification Metrics on Validation Set")
 
             # Remove legends from the plots for a cleaner look
             axs[0, 0].legend(loc='upper right')
