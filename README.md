@@ -1,4 +1,6 @@
 # Distracted Driving Detection with Hyperdimensional Computing and ResNet
+![image](https://github.com/user-attachments/assets/a9968ab9-406e-4eba-ac0e-75065fefea5e)
+
 
 This repository contains code for detecting distracted driving using a hybrid approach combining Hyperdimensional Computing (HDC) and ResNet deep learning.
 
